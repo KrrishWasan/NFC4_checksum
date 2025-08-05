@@ -13,66 +13,68 @@ import {
   MapPin
 } from 'lucide-react'
 
-const trades = [
-  {
-    id: 'TR-001',
-    counterparty: 'Global Import Co.',
-    product: 'Electronics Components',
-    value: '$450,000',
-    status: 'in_transit',
-    origin: 'Shanghai, China',
-    destination: 'Hamburg, Germany',
-    progress: 65,
-    eta: '2025-01-15',
-    compliance: 'verified',
-    sustainability: 'high',
-    created: '2025-01-08'
-  },
-  {
-    id: 'TR-002',
-    counterparty: 'Euro Trade Ltd.',
-    product: 'Organic Coffee Beans',
-    value: '$125,000',
-    status: 'completed',
-    origin: 'São Paulo, Brazil',
-    destination: 'Amsterdam, Netherlands',
-    progress: 100,
-    eta: '2025-01-10',
-    compliance: 'verified',
-    sustainability: 'high',
-    created: '2025-01-05'
-  },
-  {
-    id: 'TR-003',
-    counterparty: 'Asia Manufacturing',
-    product: 'Textile Materials',
-    value: '$280,000',
-    status: 'pending',
-    origin: 'Mumbai, India',
-    destination: 'Los Angeles, USA',
-    progress: 0,
-    eta: '2025-01-20',
-    compliance: 'pending',
-    sustainability: 'medium',
-    created: '2025-01-12'
-  },
-  {
-    id: 'TR-004',
-    counterparty: 'Nordic Imports',
-    product: 'Sustainable Furniture',
-    value: '$180,000',
-    status: 'in_transit',
-    origin: 'Stockholm, Sweden',
-    destination: 'New York, USA',
-    progress: 30,
-    eta: '2025-01-18',
-    compliance: 'verified',
-    sustainability: 'high',
-    created: '2025-01-10'
-  }
-]
+import NewTradeForm from './NewTradeForm'
 
 export default function TradeManagement() {
+  const [trades, setTrades] = useState([
+    {
+      id: 'TR-001',
+      counterparty: 'Global Import Co.',
+      product: 'Electronics Components',
+      value: '$450,000',
+      status: 'in_transit',
+      origin: 'Shanghai, China',
+      destination: 'Hamburg, Germany',
+      progress: 65,
+      eta: '2025-01-15',
+      compliance: 'verified',
+      sustainability: 'high',
+      created: '2025-01-08'
+    },
+    {
+      id: 'TR-002',
+      counterparty: 'Euro Trade Ltd.',
+      product: 'Organic Coffee Beans',
+      value: '$125,000',
+      status: 'completed',
+      origin: 'São Paulo, Brazil',
+      destination: 'Amsterdam, Netherlands',
+      progress: 100,
+      eta: '2025-01-10',
+      compliance: 'verified',
+      sustainability: 'high',
+      created: '2025-01-05'
+    },
+    {
+      id: 'TR-003',
+      counterparty: 'Asia Manufacturing',
+      product: 'Textile Materials',
+      value: '$280,000',
+      status: 'pending',
+      origin: 'Mumbai, India',
+      destination: 'Los Angeles, USA',
+      progress: 0,
+      eta: '2025-01-20',
+      compliance: 'pending',
+      sustainability: 'medium',
+      created: '2025-01-12'
+    },
+    {
+      id: 'TR-004',
+      counterparty: 'Nordic Imports',
+      product: 'Sustainable Furniture',
+      value: '$180,000',
+      status: 'in_transit',
+      origin: 'Stockholm, Sweden',
+      destination: 'New York, USA',
+      progress: 30,
+      eta: '2025-01-18',
+      compliance: 'verified',
+      sustainability: 'high',
+      created: '2025-01-10'
+    }
+  ])
+
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [showCreateModal, setShowCreateModal] = useState(false)
@@ -123,6 +125,11 @@ export default function TradeManagement() {
     const matchesStatus = statusFilter === 'all' || trade.status === statusFilter
     return matchesSearch && matchesStatus
   })
+
+  // ✅ Now this pushes new trades into the array
+  const handleCreateTrade = (newTrade) => {
+    setTrades((prevTrades) => [...prevTrades, newTrade])
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -277,6 +284,14 @@ export default function TradeManagement() {
             Create Your First Trade
           </button>
         </div>
+      )}
+
+      {/* New Trade Modal */}
+      {showCreateModal && (
+        <NewTradeForm 
+          onClose={() => setShowCreateModal(false)} 
+          onCreate={handleCreateTrade} 
+        />
       )}
     </div>
   )
