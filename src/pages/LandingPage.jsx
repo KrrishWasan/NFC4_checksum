@@ -54,19 +54,19 @@ const stats = [
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary-600 to-green-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-[#2563eb] to-green-600 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gray-900">TradeChain</span>
+              <span className="text-2xl font-bold cursor-default text-gray-900">TradeChain</span>
             </div>
             <Link
               to="/login"
-              className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors flex items-center space-x-2"
+              className="bg-[#2563eb] text-[#f5f5f5] px-6 py-2 rounded-lg hover:bg-[#1d4ed8] transition-colors flex items-center space-x-2"
             >
               <span>Connect Wallet</span>
               <ArrowRight className="w-4 h-4" />
@@ -75,13 +75,13 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-white to-green-50 py-20">
+
+      <section className="bg-gradient-to-br from-[#eff6ff] via-white to-green-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
               The Future of
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-green-600"> Cross-Border Trade</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-green-600"> Cross-Border Trade</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto animate-slide-up">
               Secure, transparent, and sustainable global trade operations powered by consortium blockchain technology. 
@@ -90,12 +90,12 @@ export default function LandingPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
               <Link
                 to="/login"
-                className="bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
+                className="bg-[#2563eb] text-white px-8 py-4 rounded-lg hover:bg-[#1d4ed8] transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <span>Start Trading</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <button className="border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-lg hover:bg-primary-50 transition-colors">
+              <button className="border-2 border-[#2563eb] text-[#2563eb] px-8 py-4 rounded-lg hover:bg-[#1d4ed8] hover:text-white transition-all transform hover:scale-105">
                 Watch Demo
               </button>
             </div>
@@ -103,13 +103,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-[#2563eb] mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
@@ -119,7 +118,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -139,8 +137,8 @@ export default function LandingPage() {
                   key={index} 
                   className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary-100 to-green-100 rounded-lg flex items-center justify-center mb-6">
-                    <Icon className="w-6 h-6 text-primary-600" />
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#dbeafe] to-green-100 rounded-lg flex items-center justify-center mb-6">
+                    <Icon className="w-6 h-6 text-[#2563eb]" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">
                     {feature.title}
@@ -155,7 +153,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -169,7 +166,7 @@ export default function LandingPage() {
           
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+              <div className="w-16 h-16 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
                 1
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Connect Wallet</h3>
@@ -201,8 +198,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-green-600 py-20">
+      <section className="bg-gradient-to-r from-[#2563eb] to-green-600 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Transform Your Trade Operations?
@@ -212,7 +208,7 @@ export default function LandingPage() {
           </p>
           <Link
             to="/login"
-            className="bg-white text-primary-600 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2 font-semibold"
+            className="bg-white text-[#2563eb] px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors inline-flex items-center space-x-2 font-semibold"
           >
             <span>Get Started Now</span>
             <ArrowRight className="w-5 h-5" />
@@ -220,13 +216,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-primary-600 to-green-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-[#2563eb] to-green-600 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-2xl font-bold">TradeChain</span>

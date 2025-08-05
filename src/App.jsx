@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css'
 
-// Components
 import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/LoginPage'
 import Dashboard from './pages/Dashboard'
@@ -12,8 +11,8 @@ import Documents from './pages/Documents'
 import Analytics from './pages/Analytics'
 import Navbar from './components/Navbar'
 
-// Context
 import { AuthProvider, useAuth } from './context/AuthContext'
+import LeedsSection from './pages/LeedsSection'
 
 function AppContent() {
   const { isAuthenticated, loading } = useAuth()
@@ -32,7 +31,6 @@ function AppContent() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/dashboard" />} />
         
-        {/* Protected Routes */}
         <Route path="/dashboard" element={isAuthenticated ? 
           <><Navbar /><Dashboard /></> : <Navigate to="/login" />} />
         <Route path="/trades" element={isAuthenticated ? 
@@ -45,6 +43,8 @@ function AppContent() {
           <><Navbar /><Documents /></> : <Navigate to="/login" />} />
         <Route path="/analytics" element={isAuthenticated ? 
           <><Navbar /><Analytics /></> : <Navigate to="/login" />} />
+        <Route path="/explore" element={isAuthenticated ? 
+          <><Navbar /><LeedsSection /></> : <Navigate to="/login" />} />
       </Routes>
     </div>
   )

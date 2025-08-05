@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { 
   TrendingUp, 
   Globe, 
@@ -20,7 +21,7 @@ const stats = [
     change: '+12.5%',
     trend: 'up',
     icon: DollarSign,
-    color: 'primary'
+    color: 'primary',
   },
   {
     label: 'Active Trades',
@@ -95,6 +96,7 @@ const alerts = [
 
 export default function Dashboard() {
   const [timeRange, setTimeRange] = useState('7d')
+  const navigate = useNavigate()
 
   const getStatusIcon = (status) => {
     switch (status) {
@@ -120,23 +122,21 @@ export default function Dashboard() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <div className="mb-8">
+      <div id='header' className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Trade Dashboard</h1>
         <p className="text-gray-600">Monitor your cross-border trade operations in real-time</p>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div id='stats' className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => {
           const Icon = stat.icon
           return (
-            <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div key={index} className="bg-white cursor-default rounded-xl shadow-sm hover:shadow-md border border-gray-100 p-6 transition-all delay-50">
               <div className="flex items-center justify-between mb-4">
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-${stat.color}-100`}>
                   <Icon className={`w-6 h-6 text-${stat.color}-600`} />
                 </div>
-                <div className={`flex items-center space-x-1 text-sm ${
+                <div className={`flex items-center space-x-1 font-medium text-sm ${
                   stat.trend === 'up' ? 'text-green-600' : 'text-red-600'
                 }`}>
                   {stat.trend === 'up' ? (
@@ -155,8 +155,7 @@ export default function Dashboard() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
-        {/* Recent Trades */}
-        <div className="lg:col-span-2">
+        <div id='recent_trades' className="lg:col-span-2">
           <div className="bg-white rounded-xl shadow-sm border border-gray-100">
             <div className="p-6 border-b border-gray-100">
               <div className="flex items-center justify-between">
