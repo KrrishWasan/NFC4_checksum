@@ -139,7 +139,6 @@ export default function Sustainability() {
         </div>
       </div>
 
-      {/* Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {sustainabilityMetrics.map((metric, index) => {
           const Icon = metric.icon
@@ -149,14 +148,14 @@ export default function Sustainability() {
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-${metric.color}-100`}>
                   <Icon className={`w-6 h-6 text-${metric.color}-600`} />
                 </div>
-                <span className={`text-sm ${
+                <span className={`text-sm text-center pl-1 ${
                   metric.trend === 'down' ? 'text-green-600' : 'text-blue-600'
                 }`}>
-                  {metric.trend === 'down' ? '↓' : '↑'} {metric.description}
+                  {metric.trend === 'down' ? '↓' : '↑'} {metric.label}
                 </span>
               </div>
               <div className="text-2xl font-bold text-gray-900 mb-1">{metric.value}</div>
-              <div className="text-sm text-gray-600">{metric.label}</div>
+              <div className="text-sm text-gray-600">{metric.description}</div>
             </div>
           )
         })}

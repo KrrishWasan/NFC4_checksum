@@ -130,7 +130,7 @@ export default function Navbar() {
                 <Wallet className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1">
-                <p className="text-base font-medium text-gray-900">{user?.name}</p>
+                <p className="text-base cursor-alias font-medium text-gray-900">{user?.name}</p>
                 <p className="text-sm text-gray-500">{user?.walletAddress?.slice(0, 12)}...</p>
               </div>
               <button
